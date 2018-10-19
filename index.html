@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>piedra papel y tijera</title>
+</head>
+
+<body>
+
+    <div class="container-fluid w-100 m-a text-center">
+        <div class="row">
+            <div class="col">
+                <h2 id="player-1-picks"></h2>
+            </div>
+            <div class="col-6 py-5">
+                <h1>Piedra, papel o tijera</h1>
+                <button id="piedra" class="btn">Piedra</button>
+                <button id="papel" class="btn">Papel</button>
+                <button id="tijera" class="btn ">Tiejra</button>
+                <div class="my-5">
+                    <h1 id="winner"></h1>
+                </div>
+            </div>
+            <div class="col">
+                <h2 id="player-2-picks"></h2>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        var piedra = document.getElementById("piedra");
+        var papel = document.getElementById("papel");
+        var tijera = document.getElementById("tijera");
+
+        var playerChoice;
+        var computerChoice;
+
+        piedra.onclick = function (eleccion) {
+            playerChoice = 0;
+            computerChoice = Math.floor(Math.random() * 3);
+            document.getElementById("player-1-picks").innerHTML = "P1 elige piedra";
+
+            if (playerChoice === computerChoice) {
+                document.getElementById("winner").innerHTML = "Draw";
+                document.getElementById("player-2-picks").innerHTML = "P2 elige piedra";
+            } else if (computerChoice === 1) {
+                document.getElementById("winner").innerHTML = "Computer wins";
+                document.getElementById("player-2-picks").innerHTML = "P2 elige papel";
+
+            } else {
+                document.getElementById("winner").innerHTML = "You win!!";
+                document.getElementById("player-2-picks").innerHTML = "P2 elige tijera";
+
+            }
+
+
+        }
+
+        papel.onclick = function (eleccion) {
+            playerChoice = 1;
+            computerChoice = Math.floor(Math.random() * 3);
+            document.getElementById("player-1-picks").innerHTML = "P1 elige papel";
+            if (playerChoice === computerChoice) {
+                document.getElementById("winner").innerHTML = "Draw";
+                document.getElementById("player-2-picks").innerHTML = "P2 elige piedra";
+            } else if (computerChoice === 3) {
+                document.getElementById("winner").innerHTML = "Computer wins";
+                document.getElementById("player-2-picks").innerHTML = "P2 elige tijera";
+
+            } else {
+                document.getElementById("winner").innerHTML = "You win!!";
+                document.getElementById("player-2-picks").innerHTML = "P2 elige piedra";
+
+            }
+            console.log(playerChoice);
+            console.log(computerChoice);
+
+
+        }
+
+        tijera.onclick = function (eleccion) {
+            playerChoice = 2;
+            computerChoice = Math.floor(Math.random() * 3);
+            document.getElementById("player-1-picks").innerHTML = "P1 elige tijera";
+            if (playerChoice === computerChoice) {
+                document.getElementById("player-2-picks").innerHTML = "P2 elige tijera";
+                document.getElementById("winner").innerHTML = "Draw";
+            } else if (computerChoice === 1) {
+                document.getElementById("player-2-picks").innerHTML = "P2 elige piedra";
+                document.getElementById("winner").innerHTML = "Computer wins";
+            } else {
+                document.getElementById("player-2-picks").innerHTML = "P2 elige papel";
+                document.getElementById("winner").innerHTML = "You win!!";
+            }
+        }
+    </script>
+</body>
+
+</html>
